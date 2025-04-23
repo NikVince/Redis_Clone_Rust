@@ -18,15 +18,9 @@ async fn main() {
 }
 
 async fn process(socket: TcpStream) {
-    // The `Connection` lets us read/write redis **frames** instead of
-    // byte streams. The `Connection` type is defined by mini-redis.
+    // creating hashmap
+    let mut db = HashMap::new();
+
+    // connection handling parsed frames by socket
     let mut connection = Connection::new(socket);
-
-    if let Some(frame) = connection.read_frame().await.unwrap() {
-        println!("GOT: {:?}", frame);
-
-        // Respond with an error
-        let response = Frame::Error("unimplemented".to_string());
-        connection.write_frame(&response).await.unwrap();
-    }
 }
