@@ -26,4 +26,18 @@ async fn process(socket: TcpStream) {
 
     // connection handling parsed frames by socket
     let mut connection = Connection::new(socket);
-}
+
+    // reading command from frame
+    while let Some(frame) = connection.read_frame().await.unwrap() {
+        let response = match Command::from_frame(frame).unwrap() {
+            Set(cmd) => {
+
+            }
+            Get(cmd) => {
+
+            } else {
+                Frame::Null
+            }
+    }
+    cmd => panic!("unimplemented {:?}", cmd),
+};
