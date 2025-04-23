@@ -4,7 +4,7 @@ use tokio::net::{TcpListener, TcpStream};
 #[tokio::main]
 async fn main() {
     // Binding listener to address
-    let listener = Tcplistener::bind("127.0.0.1:6379").await.unwrap();
+    let listener = TcpListener::bind("127.0.0.1:6379").await.unwrap();
 
     loop {
         // The second item contains the IP and port of the new connection.
