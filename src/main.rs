@@ -47,5 +47,8 @@ async fn process(socket: TcpStream) {
             }
             cmd => panic!("unimplemented {:?}", cmd),
         };
+
+        // response to client
+        connection.write_frame(&_response).await.unwrap();
     }
 }
