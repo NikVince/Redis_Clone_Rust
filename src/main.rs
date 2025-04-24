@@ -9,13 +9,20 @@ async fn main() {
     // Binding listener to address
     let listener = TcpListener::bind("127.0.0.1:6379").await.unwrap();
 
+    println!("Listening");
+
+    let db = Arc::new(Mutex::new(HashMap::new()));
+
     loop {
         // The second item contains the IP and port of the new connection.
         let (socket, _) = listener.accept().await.unwrap();
 
-        // each new inbound socket get's assigned to a new task (aka working thread)
+        // cloning handle to hashmap
+        let db = db.clone();
+
+        println!("Accepted Connection");
         tokio::spawn(async move {
-            process(socket).await;
+            process(socket, db).await;
         });
     }
 }
