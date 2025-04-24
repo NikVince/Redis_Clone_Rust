@@ -30,14 +30,14 @@ I'm taking an incremental, test-driven approach to this project:
 6. **Documentation**: Documenting design decisions and implementation details
 
 ## Project Roadmap
-- [ ] Stage 1: TCP server that responds to PING
-- [ ] Stage 2: RESP protocol parser and serializer
-- [ ] Stage 3: Handling multiple clients concurrently with Rust's async/await
-- [ ] Stage 4: Basic Redis commands (GET, SET, ECHO)
+- [x] Stage 1: TCP server that responds to PING
+- [x] Stage 2: RESP protocol parser and serializer
+- [x] Stage 3: Handling multiple clients concurrently with Rust's async/await
+- [x] Stage 4: Basic Redis commands (GET, SET, ECHO)
 - [ ] Stage 5: Key expiration functionality
 - [ ] Stage 6: Additional commands (DEL, EXISTS)
 - [ ] Stage 7: Replication functionality
-- [ ] Stage 8: CI/CD pipeline implementation with Jenkins
+- [x] Stage 8: CI/CD pipeline implementation with Jenkins
 - [ ] Stage 9: Automated performance benchmarking
 - [ ] Stage 10: Deployment to private development server
 
