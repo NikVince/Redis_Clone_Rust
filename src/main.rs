@@ -3,6 +3,9 @@ use tokio::net::{TcpListener, TcpStream};
 
 #[tokio::main]
 async fn main() {
+    // Debug message for testing auto-merge
+    println!("Redis Clone Server starting up - test branch version");
+
     // Binding listener to address
     let listener = TcpListener::bind("127.0.0.1:6379").await.unwrap();
 
@@ -29,7 +32,7 @@ async fn process(socket: TcpStream) {
 
     // reading command from frame
     while let Some(frame) = connection.read_frame().await.unwrap() {
-        let response = match Command::from_frame(frame).unwrap() {
+        let _response = match Command::from_frame(frame).unwrap() {
             Set(cmd) => {
                 // value stored as 'Vec<u8>'
                 db.insert(cmd.key().to_string(), cmd.value().to_vec());
