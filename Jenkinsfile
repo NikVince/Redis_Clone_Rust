@@ -132,7 +132,7 @@ pipeline {
                     git merge --no-ff origin/test -m "Auto-merge test to main [Jenkins]"
                     
                     # Push to main with credentials
-                    git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/YOUR_USERNAME/Redis_Clone.git HEAD:main
+                    git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/NikVince/Redis_Clone_Rust.git HEAD:main
                     
                     # Return to original branch
                     git checkout ${BRANCH_NAME}
