@@ -1,5 +1,10 @@
 pipeline {
     agent any
+
+    environment {
+        // Add the jenkins user's Rust installation to the PATH
+        PATH = "/var/lib/jenkins/.cargo/bin:${env.PATH}"
+    }
     
     options {
         // Add timestamps to console logs
