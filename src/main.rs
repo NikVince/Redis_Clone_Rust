@@ -4,7 +4,7 @@ use tokio::net::{TcpListener, TcpStream};
 #[tokio::main]
 async fn main() {
     // Debug message for testing auto-merge
-    println!("Redis Clone Server starting up - test branch version");
+    println!("Redis Clone Server starting up - testing automated Jenkins build/merge from test to main branch feature");
 
     // Binding listener to address
     let listener = TcpListener::bind("127.0.0.1:6379").await.unwrap();
