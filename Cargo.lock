@@ -6,6 +6,7 @@ version = 3
 name = "Redis_Clone_Rust"
 version = "0.1.0"
 dependencies = [
+ "bytes",
  "mini-redis",
  "tokio",
 ]
