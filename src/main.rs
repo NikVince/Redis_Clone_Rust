@@ -44,7 +44,7 @@ async fn process(socket: TcpStream, db: Db) {
             Set(cmd) => {
                 let mut db = db.lock().unwrap();
                 db.insert(cmd.key().to_string(), cmd.value().clone());
-                Frame::Simple("Ok".to_string())
+                Frame::Simple("OK".to_string())
             }
             Get(cmd) => {
                 let db = db.lock().unwrap();
