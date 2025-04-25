@@ -40,7 +40,7 @@ async fn process(socket: TcpStream, db: Db) {
 
     // reading command from frame
     while let Some(frame) = connection.read_frame().await.unwrap() {
-        let _response = match Command::from_frame(frame).unwrap() {
+        let response = match Command::from_frame(frame).unwrap() {
             Set(cmd) => {
                 let mut db = db.lock().unwrap();
                 db.insert(cmd.key().to_string(), cmd.value().clone());
